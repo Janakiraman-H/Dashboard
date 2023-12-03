@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Status Page</title>
+    <link href="/static/styles.css" rel="stylesheet">
+    <style>
+        /* Additional styles for the digital clocks and squares */
+        .time-zones {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .time-zone {
+            text-align: center;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            margin: 0 10px;
+        }
+
+        .time {
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .zone-name {
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+    <script>
+        function updateTimes() {
+            const now = new Date();
+
+            // Replace these placeholders with actual time zones logic or time fetching
+            const istTime = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata' });
+            const pstTime = now.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' });
+            const estTime = now.toLocaleTimeString('en-US', { timeZone: 'America/New_York' });
+
+            document.getElementById('istTime').innerText = istTime;
+            document.getElementById('pstTime').innerText = pstTime;
+            document.getElementById('estTime').innerText = estTime;
+        }
+
+        setInterval(updateTimes, 1000); // Update every second
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="company-logo">
+            <img src="/static/company_logo.png" alt="Company Logo">
+            <h1>Company Name</h1>
+        </div>
+        <div class="time-zones">
+            <div class="time-zone">
+                <div class="time" id="istTime">--:--:--</div>
+                <div class="zone-name">IST (Indian Standard Time)</div>
+            </div>
+            <div class="time-zone">
+                <div class="time" id="pstTime">--:--:--</div>
+                <div class="zone-name">PST (Pacific Standard Time)</div>
+            </div>
+            <div class="time-zone">
+                <div class="time" id="estTime">--:--:--</div>
+                <div class="zone-name">EST (Eastern Standard Time)</div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-bar" id="menuBar">
+        <div class="menu-content">
+            <!-- Menu items can be added here -->
+            <p>Menu Item 1</p>
+            <p>Menu Item 2</p>
+            <p>Menu Item 3</p>
+        </div>
+        <script>
+            // JavaScript for handling the hiding menu bar
+            const menuBar = document.getElementById('menuBar');
+            const menuToggle = document.createElement('div');
+            menuToggle.classList.add('menu-toggle');
+            menuToggle.textContent = '☰';
+    
+            document.body.appendChild(menuToggle);
+    
+            menuToggle.addEventListener('click', function() {
+                menuBar.classList.toggle('show');
+            });
+        </script>
+    </div>
+    <div class="split">
+        
+        <div class="content">
+            <div class="top-section">
+                <div class="section in-progress">
+                    <h2>In Progress</h2>
+                    <ul id="inProgressList">
+                        <li class="item"><a href="#" class="externalLink">Item 1</a> 
+                            <select class="statusSelect">
+                                <option value="inProgress" selected>In Progress</option>
+                                <option value="completed">Completed</option>
+                                <option value="failed">Failed</option>
+                            </select>
+                        </li>
+                        <!-- Other in-progress items go here -->
+                    </ul>
+                </div>
+                <div class="section yet-to-start">
+                    <h2>Yet to Start</h2>
+                    <ul id="yetToStartList">
+                        <li class="item"><a href="#" class="externalLink">Item 2</a> 
+                            <select class="statusSelect">
+                                <option value="inProgress">In Progress</option>
+                                <option value="completed">Completed</option>
+                                <option value="failed">Failed</option>
+                            </select>
+                        </li>
+                        <!-- Other yet-to-start items go here -->
+                    </ul>
+                </div>
+                <div class="section failed">
+                    <h2>Failed</h2>
+                    <ul id="failedList">
+                        <li class="item"><a href="#" class="externalLink">Item 3</a> 
+                            <select class="statusSelect">
+                                <option value="inProgress">In Progress</option>
+                                <option value="completed">Completed</option>
+                                <option value="failed" selected>Failed</option>
+                            </select>
+                        </li>
+                        <!-- Other failed items go here -->
+                    </ul>
+                </div>
+            </div>
+            <div class="bottom-section">
+                <h2>Last Completed Jobs</h2>
+                <ul id="completedJobs" class="completed-jobs">
+                    <!-- Display last completed jobs here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

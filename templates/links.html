@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>External Links</title>
+    <link href="/static/styles.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/links">Menu</a></li>
+        </ul>
+    </nav>
+    <aside class="sidebar">
+        <ul>
+            {% for link in links %}
+                <li><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </aside>
+    <main>
+        <h2>External Links</h2>
+        <p>Click on Menu to view the links</p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #748ccf 0%, #0800fffe 100%);
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.company-logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.menu-bar {
+    width: 60px;
+    height: 100vh;
+    background: linear-gradient(135deg, #748ccf 0%, #0800fffe 100%);
+    position: fixed;
+    top: 0;
+    left: -60px;
+    transition: left 0.3s ease-in-out;
+}
+
+.menu-bar.show {
+    left: 0;
+}
+
+.menu-content {
+    padding: 20px;
+}
+
+.menu-toggle {
+    cursor: pointer;
+    color: #fff;
+    padding: 10px;
+}
+
+.menu-toggle:hover {
+    background: linear-gradient(135deg, #748ccf 0%, #0800fffe 100%);;
+}
+
+.split {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+}
+
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+}
+
+.section {
+    flex: 1;
+    padding: 20px;
+}
+
+.bottom-section {
+    border-top: 1px solid #ccc;
+    padding: 20px;
+}
+
+.section ul {
+    padding: 0;
+    list-style: none;
+}
+
+.section ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.section ul li a {
+    flex: 1;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.section ul li select {
+    padding: 8px;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Customized colors for different sections */
+.section.in-progress ul li {
+    background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+}
+
+.section.yet-to-start ul li {
+    background: linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%);
+}
+
+.section.failed ul li {
+    background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+}
+/* Additional styling for sections can be added here */
